@@ -1,3 +1,4 @@
 steps:
 - task: gittools.gitversion.gitversion-task.GitVersion@4
   displayName: GitVersion
+- task: CacheBeta@1
