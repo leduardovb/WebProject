@@ -1,7 +1,6 @@
 trigger:
 – master
-pool:
-    vmImage: 'windows-2019'
+
 steps:
 – script: |
     git config –global core.longpaths true
@@ -12,4 +11,4 @@ steps:
     git add .
     git commit -m "sync from azure devops"
     git push https://$(git_token)@github.com/leduardovb/repo_name.git -f
-  displayName: 'Run git sync'
+    -displayName: 'Run git sync'
