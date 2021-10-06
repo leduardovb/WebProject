@@ -1,4 +1,15 @@
+trigger:
+– master
+pool:
+  vmImage: 'windows-2019'
 steps:
-- task: gittools.gitversion.gitversion-task.GitVersion@4
-  displayName: GitVersion
-- task: CacheBeta@1
+– script: |
+    git config –global core.longpaths true
+    git config –global user.email "your email"
+    git config –global user.name "your github user name"
+    git checkout master
+    git pull –all
+    git add .
+    git commit -m "sync from azure devops"
+    git push https://$(git_token)@github.com/user_name/repo_name.git -f
+  displayName: 'Run git sync'
