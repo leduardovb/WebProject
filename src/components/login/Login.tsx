@@ -3,6 +3,7 @@ import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
 import './login.css';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -10,11 +11,15 @@ function Login() {
 
     const [email,setEmail] = useState<string>("") 
     const [senha,setSenha] = useState<string>("") 
+    const history = useHistory()
     const verifyLogin = () => {
         console.log(email)
         console.log(senha)
         if(email === "teste@email.com" && senha === "123456"){
-            
+          history.push("/")  
+        }else{
+            setEmail("")
+            setSenha("")
         }
     }
 
