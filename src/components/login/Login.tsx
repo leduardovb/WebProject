@@ -16,7 +16,8 @@ function Login() {
         console.log(email)
         console.log(senha)
         if(email === "teste@email.com" && senha === "123456"){
-          history.push("/")  
+          history.push("/")
+          console.log("login efetuado")  
         }else{
             setEmail("")
             setSenha("")
@@ -30,14 +31,14 @@ function Login() {
         <div className="container">
             <div className="box">
                 <form action="" className="form">
-                    <div>
+                    <div className="label">
                         <label>Email</label>
                     </div>
                     <div className="inputEmail">
-                        <Input onChange={ (e) => setEmail(e.target.value)} value={email}  placeholder="email@email" />
+                        <Input onChange={ (e) => setEmail(e.target.value)} value={email}  placeholder="email@email.com" />
                     </div>
                     <br />
-                    <div>
+                    <div className="label">
                         <label>Senha</label>
                     </div>
                     <div className="inputEmail">
