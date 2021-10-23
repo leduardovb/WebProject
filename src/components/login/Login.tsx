@@ -30,17 +30,18 @@ function Login() {
         <div className="container">
             <div className="box">
                 <form action="" className="form">
-                    <div className="labelCenter">
+                    <div>
                         <label>Email</label>
                     </div>
                     <div className="inputEmail">
                         <Input onChange={ (e) => setEmail(e.target.value)} value={email}  placeholder="email@email" />
                     </div>
-                    <div className="labelCenter">
+                    <br />
+                    <div>
                         <label>Senha</label>
                     </div>
                     <div className="inputEmail">
-                        <Input onChange={ (e) => setSenha(e.target.value)} value={senha} placeholder="senha" />
+                        <Input onChange={ (e) => setSenha(e.target.value)} value={senha} placeholder="senha" type="password"/>
                     </div>  
                     <br />
                     <div className="labelCenter">

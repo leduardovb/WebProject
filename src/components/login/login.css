@@ -1,7 +1,8 @@
 .container {
   width: 100vw;
   height: 100vh;
-  background: rgb(0, 0, 0);
+
+  background-image: url("../../images/guns/login.jpg");
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -12,7 +13,7 @@
   width: 30vw;
   height: 25vw;
   background: #ffffff;
-  border: solid 5px #0059ff;
+  opacity: 0.9;
   border-radius: 20px;
   display: flex;
   flex-direction: row;
