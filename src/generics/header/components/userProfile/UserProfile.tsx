@@ -1,10 +1,10 @@
-import React from 'react'
 import { UserProfileButton } from './UserProfileBase'
+import ProfileImage from "../../../../images/profilePicture/profilePicture.png"
 
 function UserProfile() {
     return (
         <>
-            <UserProfileButton/>
+            <UserProfileButton src={ProfileImage} />
         </>
     )
 }
