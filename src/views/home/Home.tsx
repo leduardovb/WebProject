@@ -1,21 +1,29 @@
 import { useState } from "react";
+import { Route, Switch } from "react-router-dom";
 import { CaseDTO } from "../../dataTransferObject/DTOs";
 import Header from "../../generics/header/Header";
 import { SeedCases } from "../../generics/utils/SeedCases";
 import Store from "../store/Store";
+import CaseList from "../caseList/CaseList";
+import UserInventory from "../userInventory/UserInventory";
 import { Container } from "./HomeBase";
 
-export default function Home() {
-    const [cases, setCases] = useState<CaseDTO[]>(SeedCases())
-    const [open, setOpen] = useState<boolean>()
 
-    function clickOpen(open: boolean){
-        setOpen(open)
-    }
-    return (
-        <Container>
-            <Header clickOpen={clickOpen}/>
-            {open ? <Store cases={cases}/>: null}
-        </Container>
-    )
+export default function Home() {
+  const [cases, setCases] = useState<CaseDTO[]>(SeedCases());
+
+  return (
+    <Container>
+      <Header />
+      <Switch>
+        <Route exact path="/" >
+          <CaseList cases={cases} />
+        </Route>
+        <Route path="/inventory" >
+          <UserInventory />
+        </Route>
+      </Switch>
+      
+    </Container>
+  );
 }
