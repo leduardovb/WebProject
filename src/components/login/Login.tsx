@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
-import './login.css';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import './login.css';
 
 
 
@@ -21,11 +21,9 @@ function Login() {
         }else{
             setEmail("")
             setSenha("")
+            console.warn("Email e/ou senha incorreto")
         }
     }
-
-    
-
     return (
         <>
         <div className="container">
