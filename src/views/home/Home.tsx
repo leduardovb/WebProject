@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Route, Switch } from "react-router-dom";
 import { CaseDTO } from "../../dataTransferObject/DTOs";
 import Header from "../../generics/header/Header";
 import { SeedCases } from "../../generics/utils/SeedCases";
@@ -12,7 +13,15 @@ export default function Home() {
   return (
     <Container>
       <Header />
-      <UserInventory />
+      <Switch>
+        <Route exact path="/" >
+          <CaseList cases={cases} />
+        </Route>
+        <Route path="/inventory" >
+          <UserInventory />
+        </Route>
+      </Switch>
+      
     </Container>
   );
 }

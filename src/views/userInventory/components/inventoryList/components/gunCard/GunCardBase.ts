@@ -42,6 +42,8 @@ export const GunValue = styled.label<GunValueProps>`
 `
 
 export const GunImage = styled.img`
+    width: 7.9em;
+    align-self: center;
 `
 
 export const GunCardFooter = styled.div`
