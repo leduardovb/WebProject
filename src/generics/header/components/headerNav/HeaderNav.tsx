@@ -1,4 +1,3 @@
-import React from 'react'
 import { Container, NavButton } from './HeaderNavBase'
 
 type Props = {

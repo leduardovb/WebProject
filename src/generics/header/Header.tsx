@@ -12,6 +12,7 @@ import UserProfile from "./components/userProfile/UserProfile";
 import { Link } from "react-router-dom";
 
 function Header() {
+
 	return (
 		<Container>
 			<SubContainer>
@@ -22,7 +23,7 @@ function Header() {
 					</LogoContainer>
 				</Link>
 				<HeaderNavContainer>
-					<HeaderNav navTitle="Shop" />
+					<HeaderNav navTitle="Shop"/>
 				</HeaderNavContainer>
 			</SubContainer>
 			<SubContainer>
