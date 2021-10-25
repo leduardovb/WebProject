@@ -7,12 +7,12 @@ export const ConsumerRarity: GunRarity = {
 
 export const IndustrialRarity: GunRarity = {
     description: "Industrial grade",
-    color: "light blue",
+    color: "lightblue",
 }
 
 export const MilSpecRarity: GunRarity = {
     description: "Mil-spec",
-    color: "dark blue",
+    color: "darkblue",
 }
 
 export const RestrictedRarity: GunRarity = {
@@ -22,7 +22,7 @@ export const RestrictedRarity: GunRarity = {
 
 export const ClassifiedRarity: GunRarity = {
     description: "Classified",
-    color: "pinkish purple",
+    color: "pinkishpurple",
 }
 
 export const ConvertRarity: GunRarity = {

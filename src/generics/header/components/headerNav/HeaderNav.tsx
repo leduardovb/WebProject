@@ -1,16 +1,16 @@
-import React from 'react'
 import { Container, NavButton } from './HeaderNavBase'
 
 type Props = {
     navTitle: string
+    tt: (ttt: boolean) => void
 }
 
 function HeaderNav(props: Props) {
-    const { navTitle } = props
+    const { navTitle,tt } = props
 
     return (
         <Container>
-            <NavButton>
+            <NavButton onClick={() => tt(!false)}>
                 {navTitle}
             </NavButton>
         </Container>

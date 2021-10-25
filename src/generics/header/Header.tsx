@@ -3,16 +3,21 @@ import WebLogo from "../../images/icons/logo.svg"
 import HeaderNav from "./components/headerNav/HeaderNav"
 import UserProfile from "./components/userProfile/UserProfile"
 
-function Header() {
+type Props = {
+    aa: (ttt: boolean) => void
+}
+
+function Header(props: Props) {
+    const {aa} = props
     return (
         <Container>
             <SubContainer>
-                <LogoContainer>
-                    <Logo src={WebLogo} />
+                <LogoContainer  onClick={() => aa(!true)} >
+                    <Logo src={WebLogo}/>
                     MyCase
                 </LogoContainer>
                 <HeaderNavContainer>
-                    <HeaderNav navTitle="Shop" />
+                    <HeaderNav tt={aa} navTitle="Shop"/>
                 </HeaderNavContainer>
             </SubContainer>
             <SubContainer>
