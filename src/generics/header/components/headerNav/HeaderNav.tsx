@@ -2,15 +2,15 @@ import { Container, NavButton } from './HeaderNavBase'
 
 type Props = {
     navTitle: string
-    tt: (ttt: boolean) => void
+    clickOpen: (open: boolean) => void
 }
 
 function HeaderNav(props: Props) {
-    const { navTitle,tt } = props
+    const { navTitle,clickOpen } = props
 
     return (
         <Container>
-            <NavButton onClick={() => tt(!false)}>
+            <NavButton onClick={() => clickOpen(!false)}>
                 {navTitle}
             </NavButton>
         </Container>

@@ -4,20 +4,20 @@ import HeaderNav from "./components/headerNav/HeaderNav"
 import UserProfile from "./components/userProfile/UserProfile"
 
 type Props = {
-    aa: (ttt: boolean) => void
+    clickOpen: (open: boolean) => void
 }
 
 function Header(props: Props) {
-    const {aa} = props
+    const {clickOpen} = props
     return (
         <Container>
             <SubContainer>
-                <LogoContainer  onClick={() => aa(!true)} >
+                <LogoContainer>
                     <Logo src={WebLogo}/>
                     MyCase
                 </LogoContainer>
                 <HeaderNavContainer>
-                    <HeaderNav tt={aa} navTitle="Shop"/>
+                    <HeaderNav clickOpen={clickOpen} navTitle="Shop"/>
                 </HeaderNavContainer>
             </SubContainer>
             <SubContainer>

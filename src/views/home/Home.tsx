@@ -7,15 +7,15 @@ import { Container } from "./HomeBase";
 
 export default function Home() {
     const [cases, setCases] = useState<CaseDTO[]>(SeedCases())
-    const [t, setT] = useState<boolean>()
+    const [open, setOpen] = useState<boolean>()
 
-    function tt(ttt: boolean){
-        setT(ttt)
+    function clickOpen(open: boolean){
+        setOpen(open)
     }
     return (
         <Container>
-            <Header aa={tt}/>
-            {t ? <Store cases={cases}/>: null}
+            <Header clickOpen={clickOpen}/>
+            {open ? <Store cases={cases}/>: null}
         </Container>
     )
 }
