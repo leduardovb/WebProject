@@ -1,9 +1,9 @@
 import { GunDTO } from "../../dataTransferObject/DTOs";
-import AkInvernal from "../../images/guns/akInvernal.svg"
-import AkEmperatriz from "../../images/guns/akEmperatriz.svg"
-import MDragaoChines from "../../images/guns/m4DragaoChines.svg"
-import SGCyrex from "../../images/guns/sgAsimov.svg"
-import AWPRaposa from "../../images/guns/awpRaposa.svg"
+import AkInvernal from "../../images/guns/akInvernal.png"
+import AkEmperatriz from "../../images/guns/akImperatriz.png"
+import MDragaoChines from "../../images/guns/m4DragaoChines.png"
+import SGCyrex from "../../images/guns/sgAsimov.png"
+import AWPRaposa from "../../images/guns/awpRaposa.png"
 import { ClassifiedRarity, ConvertRarity } from "./GunRaritys";
 
 export const GunArray01: GunDTO[] = [
