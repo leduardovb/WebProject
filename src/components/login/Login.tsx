@@ -5,10 +5,8 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './login.css';
 
-
-
 function Login() {
-
+    
     const [email,setEmail] = useState<string>("") 
     const [senha,setSenha] = useState<string>("") 
     const history = useHistory()
@@ -43,8 +41,8 @@ function Login() {
                         <Input onChange={ (e) => setSenha(e.target.value)} value={senha} placeholder="senha" type="password"/>
                     </div>  
                     <br />
-                    <div>
-                        
+                    <div className="mensagem">
+                        <p>Email e/ou senha incorretos</p>
                     </div>
                     <div className="labelCenter">
                         <Button onClick={verifyLogin} variant="contained">Login</Button>
