@@ -10,9 +10,9 @@ import WebLogo from "../../images/icons/logo.svg";
 import HeaderNav from "./components/headerNav/HeaderNav";
 import UserProfile from "./components/userProfile/UserProfile";
 import { Link } from "react-router-dom";
+import { navBarItems } from "../utils/NavbarItems";
 
 function Header() {
-
 	return (
 		<Container>
 			<SubContainer>
@@ -23,7 +23,15 @@ function Header() {
 					</LogoContainer>
 				</Link>
 				<HeaderNavContainer>
-					<HeaderNav navTitle="Shop"/>
+					{navBarItems.map((value) => {
+						return (
+							<HeaderNav
+								navTitle={value.title}
+								navIcon={value.icon}
+								navHoverIcon={value.hoverIcon}
+							/>
+						);
+					})}
 				</HeaderNavContainer>
 			</SubContainer>
 			<SubContainer>
