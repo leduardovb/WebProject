@@ -5,13 +5,10 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './login.css';
 
-
-
 function Login() {
-
+    
     const [email,setEmail] = useState<string>("") 
     const [senha,setSenha] = useState<string>("") 
-    const [aparecer,setAparecer] = useState<boolean>(false) 
     const history = useHistory()
     const verifyLogin = () => {
         console.log(email)
@@ -22,11 +19,9 @@ function Login() {
         }else{
             setEmail("")
             setSenha("")
-            setAparecer(true)
             console.warn("Email e/ou senha incorreto")
         }
     }
-
     return (
         <>
         <div className="container">
@@ -45,8 +40,9 @@ function Login() {
                     <div className="inputEmail">
                         <Input onChange={ (e) => setSenha(e.target.value)} value={senha} placeholder="senha" type="password"/>
                     </div>  
-                    <div style={aparecer? {visibility:"visible"}: {display:"none"}}>
-                       <p id="mensagem_erro">Email e/ou senha incorretos!</p> 
+                    <br />
+                    <div className="mensagem">
+                        <p>Email e/ou senha incorretos</p>
                     </div>
                     <div className="labelCenter">
                         <Button onClick={verifyLogin} variant="contained">Login</Button>
