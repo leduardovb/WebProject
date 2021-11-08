@@ -37,4 +37,52 @@ export const GunArray01: GunDTO[] = [
         gunValue: 438.00,
         gunRarity: ConvertRarity
     },
+    {
+        description: "Ak-47 - The Empress",
+        gunImage: AkEmperatriz,
+        gunValue: 450.00,
+        gunRarity: ConvertRarity
+    },
+    {
+        description: "AWP - Hyper Beast",
+        gunImage: AWPRaposa,
+        gunValue: 438.00,
+        gunRarity: ConvertRarity
+    },
+    {
+        description: "SG 553 - Cyrex",
+        gunImage: SGCyrex,
+        gunValue: 83.00,
+        gunRarity: ClassifiedRarity
+    },
+    {
+        description: "Ak-47 - The Empress",
+        gunImage: AkEmperatriz,
+        gunValue: 450.00,
+        gunRarity: ConvertRarity
+    },
+    {
+        description: "M4A4 - 龍王 (Dragon King)",
+        gunImage: MDragaoChines,
+        gunValue: 100.00,
+        gunRarity: ClassifiedRarity
+    },
+    {
+        description: "AWP - Hyper Beast",
+        gunImage: AWPRaposa,
+        gunValue: 438.00,
+        gunRarity: ConvertRarity
+    },
+    {
+        description: "Ak-47 - The Empress",
+        gunImage: AkEmperatriz,
+        gunValue: 450.00,
+        gunRarity: ConvertRarity
+    },
+    {
+        description: "AWP - Hyper Beast",
+        gunImage: AWPRaposa,
+        gunValue: 438.00,
+        gunRarity: ConvertRarity
+    },
 ]

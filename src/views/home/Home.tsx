@@ -4,7 +4,6 @@ import { CaseDTO } from "../../dataTransferObject/DTOs";
 import Header from "../../generics/header/Header";
 import { SeedCases } from "../../generics/utils/SeedCases";
 import Store from "../store/Store";
-import CaseList from "../caseList/CaseList";
 import UserInventory from "../userInventory/UserInventory";
 import { Container } from "./HomeBase";
 
@@ -14,10 +13,10 @@ export default function Home() {
 
   return (
     <Container>
-      <Header />
+      <Header/>
       <Switch>
         <Route exact path="/" >
-          <CaseList cases={cases} />
+          <Store cases={cases} />
         </Route>
         <Route path="/inventory" >
           <UserInventory />

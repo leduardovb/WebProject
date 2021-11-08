@@ -28,6 +28,52 @@ export function SeedCases() {
       caseValue: 350.0,
       caseGuns: GunArray01,
     },
+    {
+      description: "Rifle Case",
+      caseImage: ShineCase,
+      caseValue: 350.0,
+      caseGuns: GunArray01,
+    },
+    {
+      description: "Rifle Case",
+      caseImage: ShineCase,
+      caseValue: 350.0,
+      caseGuns: GunArray01,
+    },
+    {
+      description: "Rifle Case",
+      caseImage: ShineCase,
+      caseValue: 350.0,
+      caseGuns: GunArray01,
+    },
+    {
+      description: "Rifle Case",
+      caseImage: ShineCase,
+      caseValue: 350.0,
+      caseGuns: GunArray01,
+    },
+    {
+      description: "Rifle Case",
+      caseImage: ShineCase,
+      caseValue: 350.0,
+      caseGuns: GunArray01,
+    },
+    {
+      description: "Rifle Case",
+      caseImage: ShineCase,
+      caseValue: 350.0,
+      caseGuns: GunArray01,
+    },    {
+      description: "Rifle Case",
+      caseImage: ShineCase,
+      caseValue: 350.0,
+      caseGuns: GunArray01,
+    },    {
+      description: "Rifle Case",
+      caseImage: ShineCase,
+      caseValue: 350.0,
+      caseGuns: GunArray01,
+    },
   ];
 
   return cases;
