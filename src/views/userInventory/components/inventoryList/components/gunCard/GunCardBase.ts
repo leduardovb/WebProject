@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 interface ContainerProps {
 	borderColor: string;
+	img?: boolean
 }
 
 export const Container = styled.div<ContainerProps>`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	width: 12em;
-	height: 12em;
+	width: ${(props) => props.img ? 20 : 12}em;
+	height: ${(props) => props.img ? 20 : 12}em;
 	border: 4px solid ${(props) => props.borderColor};
 	border-top: 0;
 	border-right: 0;
@@ -42,9 +43,13 @@ export const GunValue = styled.label<GunValueProps>`
 	font-family: "Montserrat", sans-serif;
 `;
 
-export const GunImage = styled.img`
+interface GungImageProps {
+	img?: boolean
+}
+export const GunImage = styled.img<GungImageProps>`
 	width: 7.9em;
 	align-self: center;
+	font-size: ${(props) => props.img ? 2 : 1}em;
 `;
 
 export const GunCardFooter = styled.div`

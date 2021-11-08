@@ -19,36 +19,36 @@ function CaseItems(props: Props) {
 
   return (
     <>
-    <Container>
-      <CaseContainer>
-        <CaseTitle>{caseDTO?.description}</CaseTitle>
-        <CaseImage draggable={false} src={caseDTO?.caseImage} />
-        <CaseValueDescription>
-          OPEN
-          <CaseValueDescription
-            marginRight={0.3}
-            marginLeft={1}
-            color="#2abd69"
-          >
-            $
-          </CaseValueDescription>
-          {caseDTO?.caseValue}
-        </CaseValueDescription>
-      </CaseContainer>
-      <List>
-        {caseDTO?.caseGuns.map((value: GunDTO) => {
-          return (
-            <ListItem>
-              <GunCard
-                gunRarity={value.gunRarity.color}
-                gunImage={value.gunImage}
-                gunName={value.description}
-                gunValue={value.gunValue}
-              />
-            </ListItem>
-          );
-        })}
-      </List>
+      <Container>
+          <CaseContainer>
+            <CaseTitle>{caseDTO?.description}</CaseTitle>
+            <CaseImage draggable={false} src={caseDTO?.caseImage}/>
+            <CaseValueDescription>
+              OPEN
+              <CaseValueDescription
+                marginRight={0.3}
+                marginLeft={1}
+                color="#2abd69"
+              >
+                $
+              </CaseValueDescription>
+              {caseDTO?.caseValue}
+            </CaseValueDescription>
+          </CaseContainer>
+          <List>
+            {caseDTO?.caseGuns.map((value: GunDTO) => {
+              return (
+                <ListItem>
+                  <GunCard
+                    gunRarity={value.gunRarity.color}
+                    gunImage={value.gunImage}
+                    gunName={value.description}
+                    gunValue={value.gunValue}
+                  />
+                </ListItem>
+              );
+            })}
+          </List>
       </Container>
     </>
   );

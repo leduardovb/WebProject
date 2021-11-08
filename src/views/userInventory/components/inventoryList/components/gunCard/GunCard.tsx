@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Container,
   GunCardFooter,
@@ -17,21 +18,27 @@ type Props = {
 
 function GunCard(props: Props) {
   const { gunRarity, gunImage, gunName, gunValue } = props;
+  const [zoomImage, setZoomImage] = useState<boolean>(false);
+
   return (
-    <Container borderColor={gunRarity}>
+    <Container
+      borderColor={gunRarity}
+      img={zoomImage}
+      onClick={() => setZoomImage(!zoomImage)}
+    >
       <GunCardHeader>
         <GunValue color="#2abd69" fontWeight={700} marginRight={0}>
           $
         </GunValue>
         <GunValue>{gunValue},00</GunValue>
       </GunCardHeader>
-      <GunImage src={gunImage} />
+      <GunImage img={zoomImage} src={gunImage} />
       <GunCardFooter>
         <GunName>{gunName.slice(0, gunName.lastIndexOf("-") - 1)}</GunName>
         <GunSkinName>{gunName.slice(gunName.lastIndexOf("-") + 1)}</GunSkinName>
       </GunCardFooter>
     </Container>
-  );
+  )
 }
 
 export default GunCard;
