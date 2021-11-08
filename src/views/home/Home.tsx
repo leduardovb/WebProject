@@ -7,9 +7,8 @@ import Store from "../store/Store";
 import UserInventory from "../userInventory/UserInventory";
 import { Container } from "./HomeBase";
 
-
 export default function Home() {
-  const [cases, setCases] = useState<CaseDTO[]>(SeedCases());
+	const [cases, setCases] = useState<CaseDTO[]>(SeedCases());
 
   return (
     <Container>
