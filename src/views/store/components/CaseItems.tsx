@@ -1,4 +1,4 @@
-import { CaseDTO, GunDTO } from "../../../dataTransferObject/DTOs";
+import { CaseDTO } from "../../../dataTransferObject/DTOs";
 import GunCard from "../../userInventory/components/inventoryList/components/gunCard/GunCard";
 import {
   List,
@@ -17,6 +17,9 @@ type Props = {
 
 function CaseItems(props: Props) {
   const { caseDTO } = props;
+
+  
+
 
   return (
     <>
@@ -39,14 +42,15 @@ function CaseItems(props: Props) {
             </CaseButton>
           </CaseContainer>
           <List>
-            {caseDTO?.caseGuns.map((value: GunDTO) => {
+            {caseDTO?.caseGuns.map((value) => {
               return (
-                <ListItem>
+                <ListItem >
                   <GunCard
                     gunRarity={value.gunRarity.color}
                     gunImage={value.gunImage}
                     gunName={value.description}
                     gunValue={value.gunValue}
+                    gun={value}
                   />
                 </ListItem>
               );

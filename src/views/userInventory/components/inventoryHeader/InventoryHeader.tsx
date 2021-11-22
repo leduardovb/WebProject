@@ -1,29 +1,20 @@
 import {
   Container,
-  ProfileContainer,
-  ProfileDescritpionContainer,
-  ProfilePictureImage,
   SocialMediaButton,
   SocialMediaContainer,
   SocialMediaIcon,
   SocialMediaIcons,
   TitleDescription,
 } from "./InventoryHeaderBase";
-
 import YoutubeIcon from "../../../../images/icons/youtubeIcon.svg";
 import TwitterIcon from "../../../../images/icons/facebookIcon.svg";
 import FacebookIcon from "../../../../images/icons/twitterIcon.svg";
-import ProfileImage from "../../../../images/profilePicture/profilePicture.png";
+import Profile from "./components/profile/Profile";
 
 function InventoryHeader() {
   return (
     <Container>
-      <ProfileContainer>
-        <ProfilePictureImage src={ProfileImage} />
-        <ProfileDescritpionContainer>
-          <TitleDescription>pHeniX</TitleDescription>
-        </ProfileDescritpionContainer>
-      </ProfileContainer>
+      <Profile />
       <SocialMediaContainer>
         <TitleDescription>Connect with social network</TitleDescription>
         <SocialMediaIcons>

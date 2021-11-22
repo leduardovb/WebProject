@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { CaseDTO } from "../../dataTransferObject/DTOs";
-import CaseItems from "../store/components/CaseItems";
-import InventoryList from "../userInventory/components/inventoryList/InventoryList";
 import {
   CaseContainer,
   CaseImage,

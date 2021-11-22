@@ -1,25 +1,39 @@
 import styled from "styled-components";
+import GunCardBackground from "../../../../../../images/gunCardBackgroundImage.png";
 
 interface ContainerProps {
 	borderColor: string;
-	img?: boolean
 }
+
+export const GunImage = styled.img`
+	width: 7.9em;
+	align-self: center;
+	position: absolute;
+	margin-top: 1.4em;
+	transition: 0.3s;
+`;
 
 export const Container = styled.div<ContainerProps>`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	width: ${(props) => props.img ? 20 : 12}em;
-	height: ${(props) => props.img ? 20 : 12}em;
+	width: 12em;
+	height: 12em;
 	border: 4px solid ${(props) => props.borderColor};
 	border-top: 0;
 	border-right: 0;
 	border-bottom: 0;
 	font-family: "Montserrat", sans-serif;
 	color: white;
-	background-color: #1d1e25;
+	background: #1b1c25 url(${GunCardBackground}) 50% / cover no-repeat;
 	margin-right: 0.7em;
 	margin-bottom: 0.7em;
+
+	:hover {
+		${GunImage} {
+			margin-top: 0.3em;
+		}
+	}
 `;
 
 export const GunCardHeader = styled.div`
@@ -41,14 +55,6 @@ export const GunValue = styled.label<GunValueProps>`
 	font-weight: ${(props) => (props.fontWeight ? props.fontWeight : 500)};
 	margin-right: ${(props) => (props.marginRight ? props.marginRight : 0.5)}em;
 	font-family: "Montserrat", sans-serif;
-`;
-
-interface GungImageProps {
-	img?: boolean
-}
-export const GunImage = styled.img<GungImageProps>`
-	width: 7.9em;
-	align-self: center;
 `;
 
 export const GunCardFooter = styled.div`

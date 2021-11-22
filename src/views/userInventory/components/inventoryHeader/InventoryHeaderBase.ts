@@ -12,29 +12,6 @@ export const Container = styled.div`
 	background-position: center;
 `;
 
-export const ProfileContainer = styled.div`
-	display: flex;
-	height: 100%;
-	margin-right: 3em;
-`;
-
-export const ProfilePictureImage = styled.img`
-	width: 8em;
-	height: 8em;
-	border-radius: 50%;
-	margin-right: 1em;
-	margin-left: 2em;
-	align-self: center;
-	border-radius: 50%;
-`;
-
-export const ProfileDescritpionContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	height: 100%;
-`;
-
 export const SocialMediaContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -67,4 +44,5 @@ export const TitleDescription = styled.label`
 	font-weight: 600;
 	font-size: 1.1em;
 	margin-top: 1em;
+	align-self: center;
 `;

@@ -4,8 +4,14 @@ import { ListItem } from "../../../caseList/CaseListBase";
 import GunCard from "./components/gunCard/GunCard";
 import { List } from "./InventoryListBase";
 
-function InventoryList() {
+type Props = {
+  setSelectedGun: React.Dispatch<React.SetStateAction<GunDTO | undefined>>;
+};
+
+function InventoryList(props: Props) {
+  const { setSelectedGun } = props;
   const guns: GunDTO[] = GunArray01;
+
   return (
     <List>
       {guns.map((value: GunDTO) => {
@@ -16,6 +22,8 @@ function InventoryList() {
               gunImage={value.gunImage}
               gunName={value.description}
               gunValue={value.gunValue}
+              gun={value}
+              setSelectedGun={setSelectedGun}
             />
           </ListItem>
         );

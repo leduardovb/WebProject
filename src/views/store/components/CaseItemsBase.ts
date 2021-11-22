@@ -29,7 +29,6 @@ export const CaseContainer = styled.div`
   font-family: "Montserrat", sans-serif;
   color: white;
   width: 35em;
-  background-color: #17171a;
   height: 11em;
   margin-top: 8em;
   margin-left: 44rem;
