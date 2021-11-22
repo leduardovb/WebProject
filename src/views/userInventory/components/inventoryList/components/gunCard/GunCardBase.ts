@@ -49,7 +49,6 @@ interface GungImageProps {
 export const GunImage = styled.img<GungImageProps>`
 	width: 7.9em;
 	align-self: center;
-	font-size: ${(props) => props.img ? 2 : 1}em;
 `;
 
 export const GunCardFooter = styled.div`

@@ -8,6 +8,7 @@ import {
   CaseTitle,
   CaseValueDescription,
   Container,
+  CaseButton,
 } from "./CaseItemsBase";
 
 type Props = {
@@ -23,6 +24,7 @@ function CaseItems(props: Props) {
           <CaseContainer>
             <CaseTitle>{caseDTO?.description}</CaseTitle>
             <CaseImage draggable={false} src={caseDTO?.caseImage}/>
+            <CaseButton>
             <CaseValueDescription>
               OPEN
               <CaseValueDescription
@@ -34,6 +36,7 @@ function CaseItems(props: Props) {
               </CaseValueDescription>
               {caseDTO?.caseValue}
             </CaseValueDescription>
+            </CaseButton>
           </CaseContainer>
           <List>
             {caseDTO?.caseGuns.map((value: GunDTO) => {

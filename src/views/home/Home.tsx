@@ -14,7 +14,7 @@ export default function Home() {
     <Container>
       <Header/>
       <Switch>
-        <Route exact path="/" >
+        <Route path="/" >
           <Store cases={cases} />
         </Route>
         <Route path="/inventory" >
