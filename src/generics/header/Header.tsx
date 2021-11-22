@@ -28,7 +28,7 @@ function Header() {
   return (
     <Container>
       <SubContainer>
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/store" style={{ textDecoration: "none" }}>
           <LogoContainer>
             <Logo src={WebLogo} />
             MyCase

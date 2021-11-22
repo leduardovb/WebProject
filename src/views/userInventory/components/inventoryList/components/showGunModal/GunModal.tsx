@@ -12,6 +12,7 @@ import {
 } from "./GunModalBase";
 
 type Props = {
+  height?: string;
   gun: GunDTO;
   sellbutton?: () => void;
   keepButton?: () => void;
@@ -19,10 +20,10 @@ type Props = {
 };
 
 function GunModal(props: Props) {
-  const { gun, sellbutton, keepButton, closeModal } = props;
+  const { height, gun, sellbutton, keepButton, closeModal } = props;
   return (
     <>
-      <Container onClick={() => closeModal()} />
+      <Container height={height} onClick={() => closeModal()} />
       <Modal>
         <ModalTitle>{gun.description}</ModalTitle>
         <Line color={gun.gunRarity.color} />

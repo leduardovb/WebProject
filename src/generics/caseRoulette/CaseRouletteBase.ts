@@ -17,7 +17,7 @@ export const RouletteAnimation = (props: RouletteProps) => keyframes`
 
 export const Container = styled.div`
   display: flex;
-  max-width: 100vw;
+  align-items: center;
 `;
 
 export const Roulette = styled.div<RouletteProps>`
@@ -54,9 +54,10 @@ export const GunImage = styled.img`
 `;
 
 export const RouletteLine = styled.hr`
-  top: 0;
-  right: 50%;
-  margin-top: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 2.4em;
   margin-bottom: 0;
   height: 7.9em;
   position: absolute;

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { CaseDTO, GunDTO } from "../../dataTransferObject/DTOs";
 import GunModal from "../../views/userInventory/components/inventoryList/components/showGunModal/GunModal";
 import { generateItemQuantityToRoulette } from "../utils/GenerateItemsQuantityToRoulette";
@@ -16,8 +17,8 @@ type Props = {
   caseProps: CaseDTO;
 };
 
-function CaseRoulette() {
-  //const { caseProps: skinsCase } = props;
+function CaseRoulette(props: Props) {
+  const { caseProps } = props;
   const [winnerSkin, setWinnerSkin] = useState<GunDTO>();
   const [items, setItems] = useState<GunDTO[]>([]);
   const [roundLeft, setRandomLeft] = useState<string>("");
@@ -25,6 +26,7 @@ function CaseRoulette() {
   const roulette = useRef<HTMLDivElement>(null);
   const rouletteLine = useRef<HTMLHRElement>(null);
   const skinsCase: CaseDTO = SeedCases()[0];
+  const history = useHistory();
 
   const generateItems = useCallback(() => {
     let rouletteItems: GunDTO[] = [];
@@ -76,8 +78,23 @@ function CaseRoulette() {
     closeModal();
   }
 
+  function sellGun() {
+    const userMoney: string | null = localStorage.getItem("userMoney");
+    if (userMoney !== null && winnerSkin) {
+      const newMoneyCurrence: number = Number(userMoney) + winnerSkin.gunValue;
+
+      localStorage.setItem("userMoney", String(newMoneyCurrence));
+    } else if (winnerSkin) {
+      const newMoneyCurrence: string = String(winnerSkin.gunValue);
+      localStorage.setItem("userMoney", newMoneyCurrence);
+    }
+
+    closeModal();
+  }
+
   function closeModal() {
     setWinnerSkin(undefined);
+    history.push("/");
   }
 
   function getSkinWinner() {
@@ -147,7 +164,13 @@ function CaseRoulette() {
         <RouletteLine ref={rouletteLine} />
       </Container>
       {winnerSkin ? (
-        <GunModal gun={winnerSkin} closeModal={saveGunInLocalStorage} />
+        <GunModal
+          height={"93.2%"}
+          sellbutton={sellGun}
+          keepButton={saveGunInLocalStorage}
+          gun={winnerSkin}
+          closeModal={saveGunInLocalStorage}
+        />
       ) : (
         <></>
       )}
