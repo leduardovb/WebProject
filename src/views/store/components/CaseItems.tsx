@@ -18,9 +18,6 @@ type Props = {
 function CaseItems(props: Props) {
   const { caseDTO } = props;
 
-  
-
-
   return (
     <>
       <Container>

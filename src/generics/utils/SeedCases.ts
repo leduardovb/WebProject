@@ -1,78 +1,26 @@
-import { CaseDTO, GunDTO, GunRarity } from "../../dataTransferObject/DTOs";
-import { GunArray01 } from "./Guns";
+import { CaseDTO } from "../../dataTransferObject/DTOs";
+import { GunArray01, GunArray02, GunArray03 } from "./Guns";
 import ShineCase from "../../images/cases/case.png";
 
 export function SeedCases() {
   let cases: CaseDTO[] = [
     {
-      description: "Rifle Case",
+      description: "Duelist",
       caseImage: ShineCase,
-      caseValue: 350.0,
+      caseValue: 0.00,
       caseGuns: GunArray01,
     },
     {
-      description: "Rifle Case",
+      description: "Sun Case",
       caseImage: ShineCase,
       caseValue: 350.0,
-      caseGuns: GunArray01,
+      caseGuns: GunArray02,
     },
     {
-      description: "Rifle Case",
+      description: "Dream",
       caseImage: ShineCase,
-      caseValue: 350.0,
-      caseGuns: GunArray01,
-    },
-    {
-      description: "Rifle Case",
-      caseImage: ShineCase,
-      caseValue: 350.0,
-      caseGuns: GunArray01,
-    },
-    {
-      description: "Rifle Case",
-      caseImage: ShineCase,
-      caseValue: 350.0,
-      caseGuns: GunArray01,
-    },
-    {
-      description: "Rifle Case",
-      caseImage: ShineCase,
-      caseValue: 350.0,
-      caseGuns: GunArray01,
-    },
-    {
-      description: "Rifle Case",
-      caseImage: ShineCase,
-      caseValue: 350.0,
-      caseGuns: GunArray01,
-    },
-    {
-      description: "Rifle Case",
-      caseImage: ShineCase,
-      caseValue: 350.0,
-      caseGuns: GunArray01,
-    },
-    {
-      description: "Rifle Case",
-      caseImage: ShineCase,
-      caseValue: 350.0,
-      caseGuns: GunArray01,
-    },
-    {
-      description: "Rifle Case",
-      caseImage: ShineCase,
-      caseValue: 350.0,
-      caseGuns: GunArray01,
-    },    {
-      description: "Rifle Case",
-      caseImage: ShineCase,
-      caseValue: 350.0,
-      caseGuns: GunArray01,
-    },    {
-      description: "Rifle Case",
-      caseImage: ShineCase,
-      caseValue: 350.0,
-      caseGuns: GunArray01,
+      caseValue: 550.0,
+      caseGuns: GunArray03,
     },
   ];
 
