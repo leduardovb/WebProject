@@ -9,22 +9,20 @@ import {
 } from "./StoreBase";
 import { CaseDTO } from "../../dataTransferObject/DTOs";
 import { useState } from "react";
-import InventoryList from "../userInventory/components/inventoryList/InventoryList";
 import CaseItems from "./components/CaseItems";
+import { SeedCases } from "../../generics/utils/SeedCases";
 
-type Props = {
-  cases: CaseDTO[];
-};
 
-function Store(props: Props) {
-  const { cases } = props;
+function Store() {
+  const [cases, setCases] = useState<CaseDTO[]>(SeedCases());
+
   const [open, setOpen] = useState<boolean>(false);
   const [caseDTO, setCaseDTO] = useState<CaseDTO>()
 
   return (
     <Container>
       {open ? <CaseItems caseDTO={caseDTO}/> : <List>
-        {cases.map((value: CaseDTO) => {
+        {cases.map((value) => {
           return (
             <>
               <ListItem key={value.description}>
@@ -46,7 +44,7 @@ function Store(props: Props) {
                     >
                       $
                     </CaseValueDescription>
-                    {value.caseValue}
+                    {value.caseValue === 0 ? 'FREE' : value.caseValue}
                   </CaseValueDescription>
                 </CaseContainer>
               </ListItem>

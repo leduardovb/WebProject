@@ -18,6 +18,7 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   height: fit-content;
   cursor: pointer;
+  margin-left: 15em;
 `;
 
 export const CaseContainer = styled.div`
@@ -30,6 +31,7 @@ export const CaseContainer = styled.div`
   width: 16em;
   height: 13em;
   margin-bottom: 3em;
+  margin-left: 2em;
 `;
 
 export const CaseTitle = styled.label`
