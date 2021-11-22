@@ -15,13 +15,29 @@ type Props = {
   gunName: string;
   gunValue: number;
   gun: GunDTO;
-  setSelectedGun: React.Dispatch<React.SetStateAction<GunDTO | undefined>>;
+  index?: number;
+  changeSelectedGun?: (gun: GunDTO, index: number) => void;
 };
 
 function GunCard(props: Props) {
-  const { gunRarity, gunImage, gunName, gunValue, gun, setSelectedGun } = props;
+  const {
+    gunRarity,
+    gunImage,
+    gunName,
+    gunValue,
+    gun,
+    index,
+    changeSelectedGun,
+  } = props;
   return (
-    <Container onClick={() => setSelectedGun(gun)} borderColor={gunRarity}>
+    <Container
+      onClick={() =>
+        changeSelectedGun && index
+          ? changeSelectedGun(gun, index - 1)
+          : undefined
+      }
+      borderColor={gunRarity}
+    >
       <GunCardHeader>
         <GunValue color="#2abd69" fontWeight={700} marginRight={0}>
           $

@@ -41,14 +41,26 @@ export const GunCircle = styled.div`
   justify-content: center;
   background-color: #4c4f56;
   opacity: 0.5;
-  width: 30em;
-  height: 30em;
+  width: 28em;
+  height: 28em;
   border-radius: 50%;
   border: 0;
 `;
 
 export const GunImage = styled.img`
   width: 23em;
-  margin-top: 8em;
+  margin-top: 7em;
   position: absolute;
+`;
+
+interface ButtonContainerProps {
+  justifyContent: string;
+}
+
+export const ButtonContainer = styled.div<ButtonContainerProps>`
+  display: flex;
+  align-items: center;
+  justify-content: ${(props) => props.justifyContent};
+  width: 20em;
+  margin-top: 1em;
 `;

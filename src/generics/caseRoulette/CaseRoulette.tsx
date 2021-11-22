@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CaseDTO, GunDTO } from "../../dataTransferObject/DTOs";
+import GunModal from "../../views/userInventory/components/inventoryList/components/showGunModal/GunModal";
 import { generateItemQuantityToRoulette } from "../utils/GenerateItemsQuantityToRoulette";
 import { SeedCases } from "../utils/SeedCases";
 import {
@@ -17,6 +18,7 @@ type Props = {
 
 function CaseRoulette() {
   //const { caseProps: skinsCase } = props;
+  const [winnerSkin, setWinnerSkin] = useState<GunDTO>();
   const [items, setItems] = useState<GunDTO[]>([]);
   const [roundLeft, setRandomLeft] = useState<string>("");
   const [isRouletteAnimation, setIsRouletteAnimation] = useState<boolean>(true);
@@ -56,6 +58,28 @@ function CaseRoulette() {
     setItems(rouletteItems);
   }, []);
 
+  function saveGunInLocalStorage() {
+    const userGuns: string | null = localStorage.getItem("userGuns");
+    if (userGuns !== null && winnerSkin) {
+      const newGunArray: GunDTO[] = JSON.parse(userGuns);
+      newGunArray.push(winnerSkin);
+      localStorage.removeItem("userGuns");
+      localStorage.setItem("userGuns", JSON.stringify(newGunArray));
+    } else {
+      if (winnerSkin) {
+        const newGunArray: GunDTO[] = [];
+        newGunArray.push(winnerSkin);
+        localStorage.setItem("userGuns", JSON.stringify(newGunArray));
+      }
+    }
+
+    closeModal();
+  }
+
+  function closeModal() {
+    setWinnerSkin(undefined);
+  }
+
   function getSkinWinner() {
     if (roulette !== null && roulette.current !== null) {
       const skins: HTMLCollection = roulette.current.children;
@@ -67,7 +91,7 @@ function CaseRoulette() {
           const coords = skins[index].getBoundingClientRect();
 
           if (coords.x >= rouletteLine.x - skinCardWidth && coords.x <= 681) {
-            console.log(skins[index]);
+            setWinnerSkin(items[index]);
           }
         }
       }
@@ -95,32 +119,39 @@ function CaseRoulette() {
   }, [isRouletteAnimation]);
 
   return (
-    <Container>
-      <Roulette
-        ref={roulette}
-        left={roundLeft}
-        isRouletteAnimation={isRouletteAnimation}
-      >
-        {items.length > 0 ? (
-          <>
-            {items.map((item: GunDTO, index: number) => {
-              return (
-                <GunCard
-                  key={index}
-                  id={String(index)}
-                  borderColor={item.gunRarity.color}
-                >
-                  <GunImage src={item.gunImage} />
-                </GunCard>
-              );
-            })}
-          </>
-        ) : (
-          <></>
-        )}
-      </Roulette>
-      <RouletteLine ref={rouletteLine} />
-    </Container>
+    <>
+      <Container>
+        <Roulette
+          ref={roulette}
+          left={roundLeft}
+          isRouletteAnimation={isRouletteAnimation}
+        >
+          {items.length > 0 ? (
+            <>
+              {items.map((item: GunDTO, index: number) => {
+                return (
+                  <GunCard
+                    key={index}
+                    id={String(index)}
+                    borderColor={item.gunRarity.color}
+                  >
+                    <GunImage src={item.gunImage} />
+                  </GunCard>
+                );
+              })}
+            </>
+          ) : (
+            <></>
+          )}
+        </Roulette>
+        <RouletteLine ref={rouletteLine} />
+      </Container>
+      {winnerSkin ? (
+        <GunModal gun={winnerSkin} closeModal={saveGunInLocalStorage} />
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
 
