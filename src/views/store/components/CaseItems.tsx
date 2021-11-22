@@ -23,6 +23,15 @@ function CaseItems(props: Props) {
   const { caseDTO } = props;
   const [openCase, setOpenCase] = useState<boolean>(false);
 
+  function buyCase() {
+    const currentMoney: string | null = localStorage.getItem("userMoney");
+    if (caseDTO) {
+      if (currentMoney !== null && Number(currentMoney) >= caseDTO.caseValue) {
+        setOpenCase(true);
+      }
+    }
+  }
+
   return (
     <>
       {openCase ? (
@@ -41,7 +50,7 @@ function CaseItems(props: Props) {
             />
             <CaseSubContainer>
               <h2>{caseDTO?.description}</h2>
-              <CaseButton onClick={() => setOpenCase(true)}>
+              <CaseButton onClick={() => buyCase()}>
                 <CaseValueDescription>
                   OPEN
                   <CaseValueDescription
