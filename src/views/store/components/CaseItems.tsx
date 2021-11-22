@@ -27,11 +27,12 @@ function CaseItems(props: Props) {
     const currentMoney: string | null = localStorage.getItem("userMoney");
     if (caseDTO) {
       if (currentMoney !== null && Number(currentMoney) >= caseDTO.caseValue) {
+        const newUserMoney: number = Number(currentMoney) - caseDTO.caseValue;
+        localStorage.setItem("userMoney", String(newUserMoney));
         setOpenCase(true);
       }
     }
   }
-
   return (
     <>
       {openCase ? (
