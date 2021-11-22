@@ -55,25 +55,25 @@ export const GunArray02: GunDTO[] = [
   {
     description: "Ups - Neon noir",
     gunImage: Ups02,
-    gunValue: 240.0,
+    gunValue: 232.0,
     gunRarity: ClassifiedRarity,
   },
   {
     description: "Awp - Atheris",
     gunImage: Awp02,
-    gunValue: 450.0,
+    gunValue: 650.0,
     gunRarity: ConvertRarity,
   },
   {
     description: "UMP-45 - Blaze",
     gunImage: Ump02,
-    gunValue: 100.0,
+    gunValue: 50.0,
     gunRarity: ClassifiedRarity,
   },
   {
     description: "M16 - Cyrex",
     gunImage: m1602,
-    gunValue: 83.0,
+    gunValue: 320.0,
     gunRarity: ClassifiedRarity,
   },
   {
@@ -112,19 +112,19 @@ export const GunArray03: GunDTO[] = [
   {
     description: "SG 553 - Cyrex",
     gunImage: SGCyrex,
-    gunValue: 83.0,
+    gunValue: 13.0,
     gunRarity: ClassifiedRarity,
   },
   {
-    description: "Ak-47 Campo",
+    description: "Famas - RainBow",
     gunImage: Famas03,
-    gunValue: 13.0,
+    gunValue: 150.0,
     gunRarity: ConsumerRarity,
   },
   {
     description: "AWP - Dragon Lore",
     gunImage: Awp03,
-    gunValue: 438.0,
+    gunValue: 1500.0,
     gunRarity: ConvertRarity,
   },
 ];
