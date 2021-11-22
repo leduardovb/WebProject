@@ -1,33 +1,37 @@
 import { GunDTO } from "../../../../dataTransferObject/DTOs";
-import { GunArray01 } from "../../../../generics/utils/Guns";
 import { ListItem } from "../../../caseList/CaseListBase";
 import GunCard from "./components/gunCard/GunCard";
 import { List } from "./InventoryListBase";
 
 type Props = {
-  setSelectedGun: React.Dispatch<React.SetStateAction<GunDTO | undefined>>;
+  changeSelectedGun: (gun: GunDTO, index: number) => void;
+  userGuns?: GunDTO[];
 };
 
 function InventoryList(props: Props) {
-  const { setSelectedGun } = props;
-  const guns: GunDTO[] = GunArray01;
+  const { changeSelectedGun, userGuns } = props;
 
   return (
     <List>
-      {guns.map((value: GunDTO) => {
-        return (
-          <ListItem>
-            <GunCard
-              gunRarity={value.gunRarity.color}
-              gunImage={value.gunImage}
-              gunName={value.description}
-              gunValue={value.gunValue}
-              gun={value}
-              setSelectedGun={setSelectedGun}
-            />
-          </ListItem>
-        );
-      })}
+      {userGuns && userGuns.length > 0 ? (
+        userGuns.map((value: GunDTO, index: number) => {
+          return (
+            <ListItem>
+              <GunCard
+                gunRarity={value.gunRarity.color}
+                gunImage={value.gunImage}
+                gunName={value.description}
+                gunValue={value.gunValue}
+                gun={value}
+                index={index + 1}
+                changeSelectedGun={changeSelectedGun}
+              />
+            </ListItem>
+          );
+        })
+      ) : (
+        <></>
+      )}
     </List>
   );
 }
