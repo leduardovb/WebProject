@@ -1,4 +1,3 @@
-import React from "react";
 import { GunDTO } from "../../../../dataTransferObject/DTOs";
 import { GunArray01 } from "../../../../generics/utils/Guns";
 import { ListItem } from "../../../caseList/CaseListBase";

@@ -1,14 +1,16 @@
 import {
-  Box,
   CaseContainer,
   CaseTitle,
   CaseValueDescription,
   Container,
-  ListItemCase,
-  ListCase,
+  ListItem,
+  List,
+  CaseImage,
 } from "./StoreBase";
 import { CaseDTO } from "../../dataTransferObject/DTOs";
 import { useState } from "react";
+import InventoryList from "../userInventory/components/inventoryList/InventoryList";
+import CaseItems from "./components/CaseItems";
 
 type Props = {
   cases: CaseDTO[];
@@ -16,22 +18,30 @@ type Props = {
 
 function Store(props: Props) {
   const { cases } = props;
-  const [se, setSe] = useState<boolean>(false)
+  const [open, setOpen] = useState<boolean>(false);
+  const [caseDTO, setCaseDTO] = useState<CaseDTO>()
+
   return (
     <Container>
-      {cases.map((value: CaseDTO) => {
-        return (
-          <>
-            <ListCase>
-              <ListItemCase>
+      {open ? <CaseItems caseDTO={caseDTO}/> : <List>
+        {cases.map((value: CaseDTO) => {
+          return (
+            <>
+              <ListItem key={value.description}>
                 <CaseContainer>
                   <CaseTitle>{value.description}</CaseTitle>
-                  <Box draggable={false} src={value.caseImage} onClick={() => setSe(!se)} />
+                  <CaseImage
+                  draggable={false}
+                  src={value.caseImage}
+                  onClick={() => {setOpen(!open)
+                    setCaseDTO(value)
+                  }}
+                />
                   <CaseValueDescription>
                     OPEN
                     <CaseValueDescription
                       marginRight={0.3}
-                      marginLeft={1}  
+                      marginLeft={1}
                       color="#2abd69"
                     >
                       $
@@ -39,11 +49,12 @@ function Store(props: Props) {
                     {value.caseValue}
                   </CaseValueDescription>
                 </CaseContainer>
-              </ListItemCase>
-            </ListCase>
-          </>
-        );
-      })}
+              </ListItem>
+            </>
+          );
+        })}
+      </List>}
+      
     </Container>
   );
 }
