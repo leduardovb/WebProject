@@ -1,9 +1,6 @@
-import * as React from 'react';
-import Input from '@mui/material/Input';
-import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import './login.css';
+import { Button, ButtonDiv, Container, Form, IncorrectUser, InputStyle, LoginBox, PasswordGrid, UserGrid } from './LoginBase';
 
 
 
@@ -11,7 +8,7 @@ function Login() {
 
     const [email,setEmail] = useState<string>("") 
     const [senha,setSenha] = useState<string>("") 
-    const [aparecer,setAparecer] = useState<boolean>(false) 
+    const [incorrectUser, setIncorrectUser] = useState<boolean>(false)
     const history = useHistory()
     const verifyLogin = () => {
         console.log(email)
@@ -22,39 +19,58 @@ function Login() {
         }else{
             setEmail("")
             setSenha("")
-            setAparecer(true)
-            console.warn("Email e/ou senha incorreto")
+            setIncorrectUser(true)
         }
     }
 
+    function handleKeyPress(event: any) {
+        if (event.key === 'Enter') {
+          verifyLogin()
+        }
+      }
+
     return (
         <>
-        <div className="container">
-            <div className="box">
-                <form action="" className="form">
-                    <div className="label">
-                        <label>Email</label>
-                    </div>
-                    <div className="inputEmail">
-                        <Input onChange={ (e) => setEmail(e.target.value)} value={email}  placeholder="email@email.com" />
-                    </div>
-                    <br />
-                    <div className="label">
-                        <label>Senha</label>
-                    </div>
-                    <div className="inputEmail">
-                        <Input onChange={ (e) => setSenha(e.target.value)} value={senha} placeholder="senha" type="password"/>
-                    </div>  
-                    <div style={aparecer? {visibility:"visible"}: {display:"none"}}>
-                       <p id="mensagem_erro">Email e/ou senha incorretos!</p> 
-                    </div>
-                    <div className="labelCenter">
-                        <Button onClick={verifyLogin} variant="contained">Login</Button>
-                    </div>
-                </form>
-            </div>            
-        </div>
+
+        <Container>
+        <LoginBox>
+          <Form>
+            <UserGrid>
+              <InputStyle
+                id={'UserTeste'}
+                value={email}
+                onChange={ (e) => setEmail(e.target.value)} 
+                type='text'
+                onKeyPress={(event) => handleKeyPress(event)}
+                autoFocus={true}
+                placeholder='Usuário'
+                marginTop={4}
+              />
+            </UserGrid>
+            <PasswordGrid>
+              <InputStyle
+                id={'PasswordTeste'}
+                value={senha}
+                onChange={ (e) => setSenha(e.target.value)} 
+                type='password'
+                onKeyPress={(event) => handleKeyPress(event)}
+                autoFocus={incorrectUser ? true : false}
+                placeholder='Senha'
+              ></InputStyle>
+            </PasswordGrid>
+            {incorrectUser ? (
+              <IncorrectUser>"Email e/ou senha incorreto"</IncorrectUser>
+            ) : (
+              <IncorrectUser></IncorrectUser>
+            )}
+            <ButtonDiv>
+              <Button onClick={verifyLogin}>Entrar</Button>
+            </ButtonDiv>
+          </Form>
+        </LoginBox>
+        </Container>
         </>
+
     )
 }
 
