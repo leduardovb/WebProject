@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+interface ContainerProps {
+  height?: string;
+}
+
+export const Container = styled.div<ContainerProps>`
+  width: 100%;
+  height: ${(props) => (props.height ? props.height : "100vh")};
   position: absolute;
   background-color: black;
   opacity: 0.7;

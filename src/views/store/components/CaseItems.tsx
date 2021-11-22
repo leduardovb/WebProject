@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { CaseDTO } from "../../../dataTransferObject/DTOs";
+import CaseRoulette from "../../../generics/caseRoulette/CaseRoulette";
 import GunCard from "../../userInventory/components/inventoryList/components/gunCard/GunCard";
 import {
   List,
@@ -9,6 +11,8 @@ import {
   CaseValueDescription,
   Container,
   CaseButton,
+  CaseSubContainer,
+  ModalRoulette,
 } from "./CaseItemsBase";
 
 type Props = {
@@ -17,31 +21,45 @@ type Props = {
 
 function CaseItems(props: Props) {
   const { caseDTO } = props;
+  const [openCase, setOpenCase] = useState<boolean>(false);
 
   return (
     <>
-      <Container>
+      {openCase ? (
+        caseDTO ? (
+          <CaseRoulette caseProps={caseDTO} />
+        ) : (
+          <></>
+        )
+      ) : (
+        <Container>
           <CaseContainer>
-            <CaseTitle>{caseDTO?.description}</CaseTitle>
-            <CaseImage draggable={false} src={caseDTO?.caseImage}/>
-            <CaseButton>
-            <CaseValueDescription>
-              OPEN
-              <CaseValueDescription
-                marginRight={0.3}
-                marginLeft={1}
-                color="#2abd69"
-              >
-                $
-              </CaseValueDescription>
-              {caseDTO?.caseValue}
-            </CaseValueDescription>
-            </CaseButton>
+            <CaseImage
+              isNotAbsolute={true}
+              draggable={false}
+              src={caseDTO?.caseImage}
+            />
+            <CaseSubContainer>
+              <h2>{caseDTO?.description}</h2>
+              <CaseButton onClick={() => setOpenCase(true)}>
+                <CaseValueDescription>
+                  OPEN
+                  <CaseValueDescription
+                    marginRight={0.3}
+                    marginLeft={1}
+                    color="#2abd69"
+                  >
+                    $
+                  </CaseValueDescription>
+                  {caseDTO?.caseValue}
+                </CaseValueDescription>
+              </CaseButton>
+            </CaseSubContainer>
           </CaseContainer>
           <List>
             {caseDTO?.caseGuns.map((value) => {
               return (
-                <ListItem >
+                <ListItem>
                   <GunCard
                     gunRarity={value.gunRarity.color}
                     gunImage={value.gunImage}
@@ -53,7 +71,8 @@ function CaseItems(props: Props) {
               );
             })}
           </List>
-      </Container>
+        </Container>
+      )}
     </>
   );
 }
