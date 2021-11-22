@@ -1,37 +1,61 @@
-import { GunDTO } from "../../../dataTransferObject/DTOs";
+import { CaseDTO } from "../../../dataTransferObject/DTOs";
+import GunCard from "../../userInventory/components/inventoryList/components/gunCard/GunCard";
 import {
-  BoxCard,
+  List,
+  ListItem,
   CaseContainer,
   CaseImage,
   CaseTitle,
+  CaseValueDescription,
   Container,
-  List,
-  ListItem,
+  CaseButton,
 } from "./CaseItemsBase";
 
 type Props = {
-  cases: GunDTO[];
+  caseDTO?: CaseDTO;
 };
+
 function CaseItems(props: Props) {
-  const { cases } = props;
+  const { caseDTO } = props;
+
+  
+
 
   return (
     <>
       <Container>
-        <List>
-          {cases.map((value: GunDTO) => {
-            return (
-              <ListItem key={value.description}>
-                
-                <CaseContainer>
-                <BoxCard color={value.gunRarity.color}/>
-                    <CaseTitle>{value.description}</CaseTitle>
-                    <CaseImage draggable={false} src={value.gunImage} />
-                </CaseContainer>
-              </ListItem>
-            );
-          })}
-        </List>
+          <CaseContainer>
+            <CaseTitle>{caseDTO?.description}</CaseTitle>
+            <CaseImage draggable={false} src={caseDTO?.caseImage}/>
+            <CaseButton>
+            <CaseValueDescription>
+              OPEN
+              <CaseValueDescription
+                marginRight={0.3}
+                marginLeft={1}
+                color="#2abd69"
+              >
+                $
+              </CaseValueDescription>
+              {caseDTO?.caseValue}
+            </CaseValueDescription>
+            </CaseButton>
+          </CaseContainer>
+          <List>
+            {caseDTO?.caseGuns.map((value) => {
+              return (
+                <ListItem >
+                  <GunCard
+                    gunRarity={value.gunRarity.color}
+                    gunImage={value.gunImage}
+                    gunName={value.description}
+                    gunValue={value.gunValue}
+                    gun={value}
+                  />
+                </ListItem>
+              );
+            })}
+          </List>
       </Container>
     </>
   );

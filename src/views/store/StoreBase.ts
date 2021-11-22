@@ -2,38 +2,22 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  height: 57em;
-  background-color: #27262b;
-  justify-content: space-around;
+  width: 100%;
+  height: 100%;
   align-items: center;
 `;
 
-export const ListItemCase = styled.div`
-  height: fit-content;
-  cursor: pointer;
-`;
-
-export const ListCase = styled.div`
+export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   list-style: none;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 35px;
 `;
 
-export const Box = styled.img`
-  width: 16em;
-  margin-top: 1em;
-  :hover {
-    margin-top: 0.3em;
-  }
-  transition: 0.3s;
-`;
-export const CaseTitle = styled.label`
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  font-weight: 600;
+export const ListItem = styled.li`
+  height: fit-content;
+  cursor: pointer;
 `;
 
 export const CaseContainer = styled.div`
@@ -45,6 +29,13 @@ export const CaseContainer = styled.div`
   color: white;
   width: 16em;
   height: 13em;
+  margin-bottom: 3em;
+`;
+
+export const CaseTitle = styled.label`
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-weight: 600;
 `;
 
 interface CaseValueDescriptionProps {
@@ -59,4 +50,21 @@ export const CaseValueDescription = styled.label<CaseValueDescriptionProps>`
   font-weight: 700;
   margin-left: ${(props) => (props.marginLeft ? props.marginLeft : 0)}em;
   margin-right: ${(props) => (props.marginRight ? props.marginRight : 0)}em;
+`;
+
+export const CaseDescription = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const CaseImage = styled.img`
+  width: 16em;
+  position: absolute;
+  margin-top: 1em;
+  transition: 0.3s;
+  :hover {
+    margin-top: 0.3em;
+  }
+
 `;
